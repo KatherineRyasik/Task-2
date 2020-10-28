@@ -2,12 +2,12 @@ const Board = require('./board.model');
 const Task = require('../tasks/task.model');
 const { NOT_FOUND_ERROR, BAD_REQUEST } = require('../../errors/errors');
 
-const getAll = async () => {
-  const boards = await Board.find({}).catch(() => {
-    throw new BAD_REQUEST('Bad Request');
-  });
-  return boards;
-};
+// const getAll = async () => {
+//   const boards = await Board.find({}).catch(() => {
+//     throw new BAD_REQUEST('Bad Request');
+//   });
+//   return boards;
+// };
 
 const get = async id => {
   const board = await Board.findById(id).catch(() => {
