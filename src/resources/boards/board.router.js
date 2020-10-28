@@ -30,19 +30,19 @@ router.route('/').post(
   })
 );
 
-// router.route('/:id').put(
-//   asyncErrorHandler(async (req, res) => {
-//     const board = await boardsService.update(
-//       {
-//         title: req.body.title,
-//         columns: req.body.columns
-//       },
-//       req.params.id
-//     );
-//
-//     res.json(Board.toResponse(board));
-//   })
-// );
+router.route('/:id').put(
+  asyncErrorHandler(async (req, res) => {
+    const board = await boardsService.update(
+      {
+        title: req.body.title,
+        columns: req.body.columns
+      },
+      req.params.id
+    );
+
+    res.json(Board.toResponse(board));
+  })
+);
 
 router.route('/:id').delete(
   asyncErrorHandler(async (req, res) => {
