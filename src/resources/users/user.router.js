@@ -1,68 +1,56 @@
-const userRouter = require('express').Router();
-const catchError = require('../../common/catchError');
-const userService = require('./user.service');
+const router = require('express').Router();
 const User = require('./user.model');
-const { OK, NOT_FOUND } = require('http-status-codes');
+const usersService = require('./user.service');
+const asyncErrorHandler = require('../../errors/asyncErrorHandler');
 
-userRouter.route('/').get(
-  catchError(async (req, res) => {
-    const users = await userService.getAll();
-
-    res.status(OK).json(users.map(User.toResponse));
+router.route('/').get(
+  asyncErrorHandler(async (req, res) => {
+    const users = await usersService.getAll();
+    res.json(users.map(User.toResponse));
   })
 );
 
-userRouter.route('/:id').get(
-  catchError(async (req, res) => {
-    const { id } = req.params;
-    const user = await userService.getById(id);
-
-    if (user) {
-      res.status(OK).json(User.toResponse(user));
-    } else {
-      res.status(NOT_FOUND).send('User not found');
-    }
+router.route('/:id').get(
+  asyncErrorHandler(async (req, res) => {
+    const user = await usersService.get(req.params.id);
+    res.json(User.toResponse(user));
   })
 );
 
-userRouter.route('/').post(
-  catchError(async (req, res) => {
-    const { name, login, password } = req.body;
-    const user = await userService.create({ name, login, password });
+router.route('/').post(
+  asyncErrorHandler(async (req, res) => {
+    const user = await usersService.create(
+      new User({
+        name: req.body.name,
+        login: req.body.login,
+        password: req.body.password
+      })
+    );
 
-    res.status(OK).json(User.toResponse(user));
+    res.json(User.toResponse(user));
   })
 );
 
-userRouter.route('/:id').put(
-  catchError(async (req, res) => {
-    const { id } = req.params;
-    const { name, login, password } = req.body;
-    const potentialUser = await userService.getById(id);
+router.route('/:id').put(
+  asyncErrorHandler(async (req, res) => {
+    const user = await usersService.update(
+      {
+        name: req.body.name,
+        login: req.body.login,
+        password: req.body.password
+      },
+      req.params.id
+    );
 
-    if (potentialUser) {
-      const user = await userService.update({ id, name, login, password });
-
-      res.status(OK).json(User.toResponse(user));
-    } else {
-      res.status(NOT_FOUND).send('User not found');
-    }
+    res.json(User.toResponse(user));
   })
 );
 
-userRouter.route('/:id').delete(
-  catchError(async (req, res) => {
-    const { id } = req.params;
-    const potentialUser = await userService.getById(id);
-
-    if (potentialUser) {
-      const isRemoved = await userService.remove(id);
-
-      if (isRemoved) res.status(OK).send('The user has been deleted');
-    } else {
-      res.status(NOT_FOUND).send('User not found');
-    }
+router.route('/:id').delete(
+  asyncErrorHandler(async (req, res) => {
+    await usersService.remove(req.params.id);
+    res.sendStatus(204);
   })
 );
 
-module.exports = userRouter;
+module.exports = router;

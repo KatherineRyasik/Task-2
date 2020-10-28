@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="51d831f6-33a8-431b-b8f8-247d2d4c2b30" name="Default Changelist" comment="" />
+    <list default="true" id="51d831f6-33a8-431b-b8f8-247d2d4c2b30" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/errors/asyncErrorHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/errors/errorHandler.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/errors/errors.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logs/combined.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/logs/errors.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/logger.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CROSSCHECK.md" beforeDir="false" afterPath="$PROJECT_DIR$/CROSSCHECK.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TASKS.md" beforeDir="false" afterPath="$PROJECT_DIR$/TASKS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/api.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/doc/api.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/catchError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/logger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db/db.client.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/authorizationChecker.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/errorHandler.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/requestsLogger.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/authorization/authorization.router.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/authorization/authorization.service.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/boards/board.db.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/boards/board.db.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/boards/board.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/boards/board.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/boards/board.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/boards/board.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/boards/board.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/boards/board.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/tasks/task.db.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/tasks/task.db.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/tasks/task.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/tasks/task.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/tasks/task.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/tasks/task.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/tasks/task.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/tasks/task.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.db.repository.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/users/user.db.repository.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/users/user.model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/users/user.router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/users/user.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/users/user.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1in8uBwMAcY9dIfOcJgu47UEJty" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,11 +78,24 @@
       <option name="presentableId" value="Default" />
       <updated>1602532215166</updated>
       <workItem from="1602532216201" duration="389000" />
-      <workItem from="1602532700084" duration="36000" />
+      <workItem from="1602532700084" duration="353000" />
+      <workItem from="1603700952030" duration="197000" />
+      <workItem from="1603916072635" duration="4000" />
+      <workItem from="1603917312247" duration="169000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="327" key="Github.ShareDialog" timestamp="1602532827108">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="499" y="327" key="Github.ShareDialog/0.23.1440.801@0.23.1440.801" timestamp="1602532827108" />
+    <state x="397" y="135" key="Github.UntrackedFilesDialog" timestamp="1602532841943">
+      <screen x="0" y="23" width="1440" height="801" />
+    </state>
+    <state x="397" y="135" key="Github.UntrackedFilesDialog/0.23.1440.801@0.23.1440.801" timestamp="1602532841943" />
   </component>
 </project>

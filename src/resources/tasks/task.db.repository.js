@@ -1,37 +1,58 @@
+const { NOT_FOUND_ERROR, BAD_REQUEST } = require('../../errors/errors');
 const Task = require('./task.model');
 
-const getAllByBoardId = boardId => Task.find({ boardId });
-
-const create = taskData => Task.create(taskData);
-
-const getByBoardIdAndTaskId = (boardId, _id) => Task.findOne({ boardId, _id });
-
-const update = async taskData => {
-  const { boardId, taskId: _id } = taskData;
-
-  await Task.updateOne({ boardId, _id }, taskData);
-
-  return getByBoardIdAndTaskId(boardId, _id);
+const getAll = async () => {
+  const tasks = await Task.find({}).catch(() => {
+    throw new BAD_REQUEST('Bad Request');
+  });
+  return tasks;
 };
 
-const remove = async (boardId, _id) => {
-  return (await Task.deleteOne({ boardId, _id })).ok;
+const get = async (id, boardId) => {
+  const task = await Task.findOne({ _id: id, boardId }).catch(() => {
+    throw new NOT_FOUND_ERROR(
+      `The task with id: ${id} on the board with id: ${boardId} was not found`
+    );
+  });
+  if (!task) {
+    throw new NOT_FOUND_ERROR(
+      `The task with id: ${id} on the board with id: ${boardId} was not found`
+    );
+  }
+
+  return task;
 };
 
-const removeAllByBoardId = async boardId => {
-  return (await Task.deleteMany({ boardId })).ok;
+const create = async task => {
+  const newTask = await Task.create(task).catch(() => {
+    throw new BAD_REQUEST('Bad Request');
+  });
+  if (!newTask) throw new BAD_REQUEST('Bad Request');
+  return newTask;
 };
 
-const eraseUserIdAfterRemovingUser = async userId => {
-  return (await Task.updateMany({ userId }, { userId: null })).ok;
+const update = async (task, id, boardId) => {
+  const newTask = await Task.findOneAndUpdate({ _id: id, boardId }, task).catch(
+    () => {
+      throw new BAD_REQUEST('Bad Request');
+    }
+  );
+  if (!newTask) throw new BAD_REQUEST('Bad Request');
+  return newTask;
 };
 
-module.exports = {
-  getAllByBoardId,
-  create,
-  getByBoardIdAndTaskId,
-  update,
-  remove,
-  removeAllByBoardId,
-  eraseUserIdAfterRemovingUser
+const remove = async (id, boardId) => {
+  const task = await Task.findOneAndDelete({ _id: id, boardId }).catch(() => {
+    throw new NOT_FOUND_ERROR(
+      `The task with id: ${id} on the board with id: ${boardId} was not found`
+    );
+  });
+  if (!task) {
+    throw new NOT_FOUND_ERROR(
+      `The task with id: ${id} on the board with id: ${boardId} was not found`
+    );
+  }
+  return task;
 };
+
+module.exports = { getAll, get, create, update, remove };
