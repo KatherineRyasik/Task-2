@@ -43,7 +43,7 @@
             "always"
         ],
         "no-constant-condition": 2,
-        "no-control-regex": 0,
+        "no-control-regex": 2,
         "no-dupe-args": 2,
         "no-dupe-keys": 2,
         "no-duplicate-case": 2,

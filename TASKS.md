@@ -167,7 +167,7 @@ Add logging functionality to already existing REST service.
 - You can generate connect string, by the following: in Atlas - Clusters tab click “Connect” button.
 - On Modal window (Connect to Cluster) click “Connect your Application” button. The window should look similar as in the picture:
 
-![alt text](./doc/connection.png "Connection modal")
+![alt text](doc/connection.png "Connection modal")
 
 2. Use [Mongoose ODM](https://mongoosejs.com/) to store and update data.
 3. The information on DB connection (connection string) should be stored in `.env` file and should be passed to the application using the environment variables with the help of the following [dotenv package](https://www.npmjs.com/package/dotenv).
